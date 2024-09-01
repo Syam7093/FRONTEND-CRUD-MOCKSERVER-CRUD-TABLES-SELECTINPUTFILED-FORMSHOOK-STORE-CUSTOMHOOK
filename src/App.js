@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Crud from './components/Crud'
+import CrudwithMock from './components/CrudwithMock'
+import Filter from './components/Filter'
+import Tables from './components/Tables'
+import NavBar from './components/NavBar'
+import Search from './components/Search'
+import SelectField from './components/SelectField'
+import FormHandling from './components/FormHandling'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+      <NavBar></NavBar>
+      <Routes>
+        <Route path="/" element={<Crud/>}></Route>
+        <Route path="/crud" element={<CrudwithMock/>}></Route>
+        <Route path="/filter" element={<Filter/>}></Route>
+
+        <Route path="/tables" element={<Tables/>}></Route>
+        <Route path="/table" element={<Search/>}></Route>
+        <Route path="/select" element={<SelectField/>}></Route>
+        <Route path="/forms" element={<FormHandling/>}></Route>
+
+
+
+      </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
